@@ -1,0 +1,98 @@
+%
+%   Образец / Шаблон оформления тезиса
+%
+%
+%   Если в тезисе каких-то разделов (картинок, списка литературы) нет, то соотвествующие команды надо закомментировать.
+%   Файл для компиляции --- этот (example.tex, переименовый в фамилию автора, например, ivanov.tex).
+%
+%   ========================================================================================
+%
+
+
+%
+%   Если в вашем документе нет картинок и вы хотите компилировать документ при помощи latex->dvips->ps2pdf, то уберите опцию usePics, заменив следующую строчку на
+%\documentclass{lomonosov}
+\documentclass[usePics]{lomonosov}
+
+\begin{thesis}  % Сам тезис должен быть полностью помещен внутри окружения thesis
+
+Перепишем следствие 1.8, считая, что \(2V_p(\alpha) - \|p\| > 0\)
+\[\Delta \le \frac{Q_p(T) + \frac{A(\alpha V_p(\alpha) - M_p(\alpha))}{T}}{2V_p(\alpha) - \|p\|}\]
+
+Возьмем \(p(x)=\frac{1-\cos{x}}{\pi x^2}\), тогда $\|p\| = 1$, $M_p(\alpha) = 0$,
+\[Q_p(T) = \frac{1}{2\pi} \int_{-T}^T \left(1-\frac{|t|}{T}\right)\frac{|f(t) - e^{\frac{-t^2}{2}}|}{t} \, dt\]
+
+Имеем \[\Delta \le \frac{1}{2\pi({2V_p(\alpha) - 1})}\int_{-T}^T \left(1-\frac{|t|}{T}\right)\biggl|\frac{f(t) - e^{\frac{-t^2}{2}}}{t}\biggr| \, dt +
+\frac{\alpha V_p(\alpha)}{\sqrt{2\pi}T(2V_p(\alpha) - 1)} =\]
+\[=\frac{1}{2\pi({2V_p(\alpha) - 1})}\int_{-T}^T \left(1-\frac{|t|}{T}\right)\biggl|\frac{f(t) - e^{\frac{-t^2}{2}}}{t}\biggr| \, dt +
+\frac{\alpha}{2\sqrt{2\pi}T}\biggl(1+\frac{1}{2V_p(\alpha) - 1}\biggr)\]
+
+\begin{lemma}\label{lemma1}
+\(|\hat{f}_n(t)| \le e^{-t^2/4}\) для \(|t| \le T_1 = \frac{1}{94L^3}\)
+\end{lemma}
+
+\begin{lemma}\label{lemma2}
+\(|\hat{f}_n(t) - e^{-t^2/2}| \le 4L^3|t|^3e^{-t^2/2}\) для \(|t| \le T_0 = \frac{1}{3L}\)
+\end{lemma}
+
+Рассмотрим случай $T_1 > T_0$. Это значит, что $\frac{1}{94L^3} > \frac{1}{3L}$ или $L < \sqrt{\frac{3}{94}}$.
+Мы хотим показать, что $\Delta \le C_0L^3$, значит для всех $\hat{F}_n(x)$ с $L^3 > \frac{0.55}{C_0}$ оценка верна и остается доказать оценку для $L^3 < \frac{0.55}{C_0}$. Будем рассматривать $C_0$ такие, что $\frac{0.55}{C_0} < \sqrt{\frac{3}{94}}^3$, то есть которые укладываются в случай $T_1 > T_0$. Имеем $C_0 > \frac{0.55}{\sqrt{\frac{3}{94}}^3} = 96.4656\dots$. \(\Delta \le L^3C(L, \alpha)\), где
+\[C(L, \alpha) = C_1(\alpha)I(L) + C_2(\alpha),\]
+\[C_1(\alpha) = \frac{1}{2\pi({2V_p(\alpha) - 1})},\]
+\[I(L) = 4\int_{-\frac{1}{3L}}^{\frac{1}{3L}} (1 - 94L^3|t|)t^2 e^{-t^2/2} \, dt + \int_{\frac{1}{3L} \le |t| \le \frac{1}{94L^3}}
+(1-94L^3|t|)\frac{e^{-t^2/2}+e^{-t^2/4}}{L^3|t|} \, dt,\]
+\[C_2(\alpha) = \frac{94\alpha}{2\sqrt{2\pi}}(1+\frac{1}{2V_p(\alpha) - 1})\]
+
+Построим графики $I(L)$ на $l \le L < \sqrt{\frac{3}{94}}$ при достаточно малом $l$, чтобы оценить сверху $I(L)$.
+Возьмем $l = 0.001$, шаг графика $h = 0.0005$:
+
+%\Pictures
+\Picture{I_100000_1}{График функций $I(L)$ и $y(L)$ = 23.26 }{0.7}
+\Picture{I_100000_2}{График тех же функций, увеличенное изображение}{0.7}
+
+Рассмотрим поведение $I(L)$ при $L \to 0$.
+Вычислим первое слагаемое:
+
+\[4\int_{-\frac{1}{3L}}^{\frac{1}{3L}} (1 - 94L^3|t|)t^2 e^{-t^2/2} \, dt =
+4\int_{-\frac{1}{3L}}^{\frac{1}{3L}} t^2 e^{-t^2/2} \, dt \, - \, 4 \cdot 94L^3\int_{-\frac{1}{3L}}^{\frac{1}{3L}} {|t|}^3 e^{-t^2/2} \, dt
+\xrightarrow[L \to 0]{}\]
+\[\{ \text{второй интеграл сходится к некоторому конечному числу} \}\]
+\[\xrightarrow[L \to 0]{}
+4\int_{-\infty}^{\infty} t^2 e^{-t^2/2} \, dt = 4\sqrt{2 \pi} = 10.0265\dots\]
+
+Теперь докажем, что второе слагаемое $I(L)$ при $L \to 0$ стремится к $0$.
+
+Учитывая, что $e^{\frac{-t^2}{2}} \le e^{-\frac{1}{18L^2}}$, при $|t| > \frac{1}{3L}$, получаем:
+
+\[\int_{\frac{1}{3L} < |t| < \frac{1}{94L^3}} {\frac{1-94L^3|t|}{L^3|t|}\cdot e^{-\frac{t^2}{2}} \, dt}
+\le
+\int_{\frac{1}{3L} < |t| < \frac{1}{94L^3}} {\biggl(\frac{1}{3L^3}-94\biggr)\cdot e^{-\frac{1}{18L^2}} \, dt}
+\le
+\]
+\[
+\le
+\frac{1}{3L^2} \cdot 2\biggl( \frac1{94L^3}-\frac1{3L} \biggr) \cdot e^{-\frac{1}{18L^2}}
+\le
+\frac{\frac1{L^5}}{141 \cdot e^{\frac1{18L^2}}} \longrightarrow 0
+\]
+
+%
+%подбор L будет тут
+Нужно подобрать такое $l(\varepsilon)$:
+\[ \forall \varepsilon > 0 \, \exists l(\varepsilon) \, \forall 0<L \le l:\]
+\[
+|I(L) - 4\sqrt{2\pi}| < \varepsilon
+\]
+%
+%
+Таким образом, $I(L) \le 23.26$ при $0 < L \le \sqrt{\frac{3}{94}}$.
+
+Осталось минимизировать $C_0(\alpha) = C_1(\alpha) \cdot 23.26 + C_2(\alpha)$ по $\alpha > \alpha_p$, где $ \alpha_p$ --- корень уравнения $2V_p(\alpha) - 1 = 0$. $\alpha_p = 1.6995\dots$ (стр. 144).
+График $C_0(\alpha)$:
+
+\Pictures
+\Picture{C0_100000_1}{График функций $C_0(\alpha)$ и $y(\alpha) = 173.3$}{0.7}
+\Picture{C0_100000_2}{График тех же функций, увеличенное изображение}{0.7}
+
+То есть $C_0 \le 173.3$
+\end{thesis} % Сам тезис должен быть полностью помещен внутри окружения thesis
