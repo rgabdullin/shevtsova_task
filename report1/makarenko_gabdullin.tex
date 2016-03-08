@@ -62,26 +62,123 @@
 
 Теперь докажем, что второе слагаемое $I(L)$ при $L \to 0$ стремится к $0$.
 
-Учитывая, что $e^{\frac{-t^2}{2}} \le e^{-\frac{1}{18L^2}}, e^{\frac{-t^2}{4}} \le e^{-\frac{1}{36L^2}}$, при $|t| > \frac{1}{3L}$, получаем:
+Учитывая, что $e^{\frac{-t^2}{2}} \le e^{-\frac{1}{18L^2}}, e^{\frac{-t^2}{4}} \le e^{-\frac{1}{36L^2}}$, при $|t| \ge \frac{1}{3L}$, получаем:
 
-\[\int_{\frac{1}{3L} \le |t| \le \frac{1}{94L^3}} {\frac{1-94L^3|t|}{L^3|t|}\cdot (e^{-\frac{t^2}{2}} + e^{-\frac{t^2}{4}}) \, dt} \le \]
+\[\int_{\frac{1}{3L} \le |t| \le \frac{1}{94L^3}} {\frac{1-94L^3|t|}{L^3|t|}\cdot \bigl(e^{-\frac{t^2}{2}} + e^{-\frac{t^2}{4}}\bigr) \, dt} \le \]
 \[
 \le
-\int_{\frac{1}{3L} \le |t| \le \frac{1}{94L^3}} {\biggl(\frac{3}{L^2}-94\biggr)\cdot (e^{-\frac{1}{18L^2}} + e^{-\frac{1}{36L^2}}) \, dt}
+\int_{\frac{1}{3L} \le |t| \le \frac{1}{94L^3}} {\biggl(\frac{3}{L^2}-94\biggr)\cdot \bigl(e^{-\frac{1}{18L^2}} + e^{-\frac{1}{36L^2}}\bigr) \, dt}
 \le
 \]
 \[
 \le
-\frac{3}{L^2} \cdot 2\biggl( \frac1{94L^3}-\frac1{3L} \biggr) \cdot (e^{-\frac{1}{18L^2}} + e^{-\frac{1}{36L^2}})
+\frac{3}{L^2} \cdot 2 \cdot \biggl( \frac1{94L^3}-\frac1{3L} \biggr) \cdot \bigl(e^{-\frac{1}{18L^2}} + e^{-\frac{1}{36L^2}}\bigr)
 \le
-\frac{3}{47} \cdot \frac1{L^5} \cdot (e^{-\frac{1}{18L^2}} + e^{-\frac{1}{36L^2}}) \longrightarrow 0
+\frac{3}{47} \cdot \frac1{L^5} \cdot \bigl(e^{-\frac{1}{18L^2}} + e^{-\frac{1}{36L^2}}\bigr) \longrightarrow 0
 \]
 
 %
 %подбор L будет тут
-Нужно подобрать такое $l(\varepsilon)$:
+Теперь нужно подобрать такое $l(\varepsilon)$:
 \[ \forall \varepsilon > 0 \, \exists l(\varepsilon) \, \forall 0<L \le l:\]
-\[|I(L) - 4\sqrt{2\pi}| < \varepsilon\]
+\[
+|I(L) - 4\sqrt{2\pi}| 
+=
+\biggl| 4 \cdot \biggl( \int_{-\frac1{3L}}^{\frac1{3L}} \bigl(1 - 94L^3|t|\bigr)\cdot t^2e^{\frac{t^2}{2}} \, dt - \sqrt{2\pi} \biggr)
++
+\]
+\[
++
+\int_{\frac1{3L} \le  |t| \le \frac1{94L^3}}^{} \bigl(1 - 94L^3|t|\bigr)\frac{e^{-\frac{t^2}{2}} + e^{-\frac{t^2}{4}}}{L^3|t|}\, dt \biggr| \le
+\]
+\[
+\le
+4 \cdot 
+\biggl|
+\int_{-\infty}^{+\infty} t^2e^{-\frac{t^2}{2}} \, dt - \int_{-\frac1{3L}}^{\frac1{3L}} t^2e^{-\frac{t^2}{2}} \, dt +
+94L^3 \int_{-\frac1{3L}}^{\frac1{3L}} |t|^3e^{-\frac{t^2}{2}} \, dt
+\biggr| +
+\]
+\[
++
+2 \cdot
+\biggl|
+\int_{\frac1{3L} \le  |t| \le \frac1{94L^3}}^{} \bigl(1 - 94L^3|t|\bigr)\frac{e^{-\frac{t^2}{4}}}{L^3|t|}\, dt
+\biggr| \le
+4 \cdot
+\biggl|
+\int_{|t| \ge \frac1{3L}}^{} t^2e^{-\frac{t^2}{2}} \, dt
+\biggr| +
+\]
+\[
++
+\frac{4 \cdot 94}{3} \cdot L^2
+\biggl|
+\int_{-\frac1{3L}}^{\frac1{3L}} t^2e^{-\frac{t^2}{2}} \, dt
+\biggr|
++
+2 \cdot 3 \cdot 
+\biggl|
+\int_{\frac1{3L} \le  |t| \le \frac1{94L^3}}^{} \frac1{L^2} e^{-\frac1{36L^2}}\, dt
+\biggr|
+<
+\]
+\[
+< \frac{\varepsilon}3 + \frac{\varepsilon}3 +\frac{\varepsilon}3 = \varepsilon 
+\]
+\begin{itemize}
+\item[1)]
+	$4 \cdot
+	\bigl|
+	\int_{|t| \ge \frac1{3L}}^{} t^2e^{-\frac{t^2}{2}} \, dt
+	\bigr|
+	\le
+	\bigl|
+	\int_{|t| \ge \frac1{3L}}^{} te^{-\frac{t^2}{4}} \, dt
+	\bigr|
+	=
+	8 \cdot
+	\bigl|
+	- \int_{|t| \ge \frac1{3L}}^{} d\bigl(e^{-\frac{t^2}{4}}\bigr)
+	\bigr|
+	=
+	8 \cdot 
+	e^{-\frac1{36L^2}} 
+	\le
+	8 \cdot 
+	e^{-\frac1{36l^2}} 
+	<
+	\frac{\varepsilon}3$, откуда получаем, что $ l < \frac1{6\sqrt{ln\frac{24}\varepsilon}}
+	$
+\item[2)]
+	$
+	\frac{4 \cdot 94}{3} \cdot L^2
+	\bigl|
+	\int_{-\frac1{3L}}^{\frac1{3L}} t^2e^{-\frac{t^2}{2}} \, dt
+	\bigr|
+	\le
+	\frac{4 \cdot 94}{3} \cdot l^2 \cdot \sqrt{2\pi} < \frac{\varepsilon}3$, откуда получаем, что $l < \sqrt{\frac{\varepsilon}{4 \cdot 94 \cdot \sqrt{2\pi}}}
+	$
+\item[3)]
+	$12 \cdot 
+	\bigl|
+	\frac1{94L^5}
+	e^{-\frac1{36L^2}}
+	\bigr|
+	\le
+	\frac6{94} \cdot (6\sqrt{2})^5 \cdot e^{-\frac1{72l^2}}
+	< \frac{\varepsilon}3$, откуда получаем, что $l < \frac1{\sqrt{72\cdot ln(\frac{6^6 \cdot (\sqrt2)^5}{47\cdot \varepsilon})}}\
+	$
+\end{itemize}
+Итого: $l(\varepsilon) = 
+\min
+\biggl\{
+{ \bigl(6\sqrt{ln\frac{24}\varepsilon})^{-1}};
+{\sqrt{\frac{\varepsilon}{4 \cdot 94 \cdot \sqrt{2\pi}}}};
+{\bigl(\sqrt{72\cdot ln(\frac{6^6 \cdot (\sqrt2)^5}{47\cdot \varepsilon})}\bigr)^{-1}}
+\biggr\}
+$
+\\
 %
 %
 Таким образом, $I(L) \le 23.26$ при $0 < L \le \sqrt{\frac{3}{94}}$.
