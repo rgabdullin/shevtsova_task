@@ -79,8 +79,10 @@
 
 %
 %подбор L будет тут
-Теперь нужно подобрать такое $l(\varepsilon)$:
-\[ \forall \varepsilon > 0 \, \exists l(\varepsilon) \, \forall 0<L \le l:\]
+Теперь определим погрешность $\varepsilon(l)$ в заданной окрестности нуля:
+\[
+\forall L \ \in \left( 0; l \right]
+\]
 \[
 |I(L) - 4\sqrt{2\pi}| 
 =
@@ -121,10 +123,7 @@
 \biggl|
 \int_{\frac1{3L} \le  |t| \le \frac1{94L^3}}^{} \frac1{L^2} e^{-\frac1{36L^2}}\, dt
 \biggr|
-<
-\]
-\[
-< \frac{\varepsilon}3 + \frac{\varepsilon}3 +\frac{\varepsilon}3 = \varepsilon 
+< \varepsilon 
 \]
 \begin{itemize}
 	\item[1)]
@@ -146,9 +145,7 @@
 	e^{-\frac1{36L^2}} 
 	\le
 	8 \cdot 
-	e^{-\frac1{36l^2}} 
-	<
-	\frac{\varepsilon}3$, откуда получаем, что $ l < \frac1{6\sqrt{ln\frac{24}\varepsilon}}
+	e^{-\frac1{36l^2}}
 	$
 	\item[2)]
 	$
@@ -157,7 +154,7 @@
 	\int_{-\frac1{3L}}^{\frac1{3L}} t^2e^{-\frac{t^2}{2}} \, dt
 	\bigr|
 	\le
-	\frac{4 \cdot 94}{3} \cdot l^2 \cdot \sqrt{2\pi} < \frac{\varepsilon}3$, откуда получаем, что $l < \sqrt{\frac{\varepsilon}{4 \cdot 94 \cdot \sqrt{2\pi}}}
+	\frac{4 \cdot 94}{3} \cdot l^2 \cdot \sqrt{2\pi}
 	$
 	\item[3)]
 	$12 \cdot 
@@ -166,32 +163,37 @@
 	e^{-\frac1{36L^2}}
 	\bigr|
 	\le
-	\frac6{94} \cdot (6\sqrt{2})^5 \cdot e^{-\frac1{72l^2}}
-	< \frac{\varepsilon}3$, откуда получаем, что $l < \frac1{\sqrt{72\cdot ln(\frac{6^6 \cdot (\sqrt2)^5}{47\cdot \varepsilon})}}\
-	$
+	12 \cdot 
+	\frac1{94l^5}
+	e^{-\frac1{36l^2}}
+		$
 \end{itemize}
-Итого: $l(\varepsilon) = 
-\min
-\biggl\{
-{ \bigl(6\sqrt{ln\frac{24}{\varepsilon}})^{-1}};
-{\sqrt{\frac{\varepsilon}{4 \cdot 94 \cdot \sqrt{2\pi}}}};
-{\bigl(\sqrt{72\cdot ln(\frac{6^6 \cdot (\sqrt2)^5}{47\cdot \varepsilon})}\bigr)^{-1}}
-\biggr\}
+Итого: $\varepsilon(l) >
+8 \cdot 
+e^{-\frac1{36l^2}}
++
+\frac{4 \cdot 94}{3} \cdot l^2 \cdot \sqrt{2\pi}
++
+12 \cdot 
+\frac1{94l^5}
+e^{-\frac1{36l^2}}
 $
 \\
-Возьмем $\varepsilon = 1.51$. Тогда:
+Возьмем $l = 0.04$. Тогда:
 \[
-l(1.51) = 
-\min
-\biggl\{
-{ \bigl(6\sqrt{ln\frac{24}{1.51}})^{-1}};
-{\sqrt{\frac{1.51}{4 \cdot 94 \cdot \sqrt{2\pi}}}};
-{\bigl(\sqrt{72\cdot ln(\frac{6^6 \cdot (\sqrt2)^5}{47\cdot 1.51})}\bigr)^{-1}}
-\biggr\} = 
+\varepsilon(0.04) = 
+8 \cdot 
+e^{-\frac1{36\cdot 0.04^2}}
++
+\frac{4 \cdot 94}{3} \cdot 0.04^2 \cdot \sqrt{2\pi}
++
+12 \cdot 
+\frac1{94 \cdot 0.04^5}
+e^{-\frac1{36 \cdot 0.04^2}}
+=
 \]
 \[
-= 0.04002\dots
-\approx 0.04
+= 0.538631\cdots \approx 0.5386
 \]
 %
 %
