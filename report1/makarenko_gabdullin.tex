@@ -132,19 +132,24 @@
 	\int_{|t| \ge \frac1{3L}}^{} t^2e^{-\frac{t^2}{2}} \, dt
 	\bigr|
 	\le
+	4 \cdot
 	\bigl|
 	\int_{|t| \ge \frac1{3L}}^{} te^{-\frac{t^2}{4}} \, dt
 	\bigr|
 	=
-	8 \cdot
+	$
+	\\
+	$
+	=
+	16 \cdot
 	\bigl|
-	- \int_{|t| \ge \frac1{3L}}^{} d\bigl(e^{-\frac{t^2}{4}}\bigr)
+	- \int_{\frac1{3L}}^{\infty} d\bigl(e^{-\frac{t^2}{4}}\bigr)
 	\bigr|
 	=
-	8 \cdot 
+	16 \cdot 
 	e^{-\frac1{36L^2}} 
 	\le
-	8 \cdot 
+	16 \cdot 
 	e^{-\frac1{36l^2}}
 	$
 	\item[2)]
@@ -154,7 +159,7 @@
 	\int_{-\frac1{3L}}^{\frac1{3L}} t^2e^{-\frac{t^2}{2}} \, dt
 	\bigr|
 	\le
-	\frac{4 \cdot 94}{3} \cdot l^2 \cdot \sqrt{2\pi}
+	\frac{4 \cdot 94 \cdot \sqrt{2\pi}}{3} \cdot l^2
 	$
 	\item[3)]
 	$12 \cdot 
@@ -163,20 +168,19 @@
 	e^{-\frac1{36L^2}}
 	\bigr|
 	\le
-	12 \cdot 
-	\frac1{94l^5}
+	\frac{12}{94l^5}
 	e^{-\frac1{36l^2}}
+	\le
+	\frac{12 \cdot (6\sqrt{2})^5}{94} \cdot e^{-\frac1{72l^2}}
 		$
 \end{itemize}
 Итого: $\varepsilon(l) >
 8 \cdot 
 e^{-\frac1{36l^2}}
 +
-\frac{4 \cdot 94}{3} \cdot l^2 \cdot \sqrt{2\pi}
+\frac{4 \cdot 94 \cdot \sqrt{2\pi}}{3} \cdot l^2 \cdot
 +
-12 \cdot 
-\frac1{94l^5}
-e^{-\frac1{36l^2}}
+\frac{12 \cdot (6\sqrt{2})^5}{94} \cdot e^{-\frac1{72l^2}}
 $
 \\
 Возьмем $l = 0.04$. Тогда:
@@ -185,15 +189,13 @@ $
 8 \cdot 
 e^{-\frac1{36\cdot 0.04^2}}
 +
-\frac{4 \cdot 94}{3} \cdot 0.04^2 \cdot \sqrt{2\pi}
+\frac{4 \cdot 94 \cdot \sqrt{2\pi}}{3} \cdot 0.04^2
 +
-12 \cdot 
-\frac1{94 \cdot 0.04^5}
-e^{-\frac1{36 \cdot 0.04^2}}
+\frac{12 \cdot (6\sqrt{2})^5}{94} \cdot e^{-\frac1{72 \cdot 0.04^2}}
 =
 \]
 \[
-= 0.538631\cdots \approx 0.5386
+= 1.456484 \dots \approx 1.4565
 \]
 %
 %
