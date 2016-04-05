@@ -16,7 +16,7 @@
 
 \begin{document}
 \title{Аналитическая оценка сверху для $Q_p(T)$}
-\author{Два баклана}
+\author{Два балбеса}
 \maketitle
 
 Пусть $Q_p(T) \equiv \frac{1}{2\pi}\cdot \int_{-T}^{T}\bigl(1-|\frac{t}{T}|\bigr) \bigl| \frac{\bar{f}_n(t) - e^{-\frac{t^2}{2}}}{t}\bigr| \, dt$
@@ -206,9 +206,9 @@
 			\int_0^{T_0} t^2e^{-\frac{t^2}{2}} dt
 			-
 			\frac1T\int_0^{T_0} t^3 e^{-\frac{t^2}{2}} dt
+			\Bigg)
 			+\frac1\pi
 			\int_{T_0}^T 1\cdot\frac{t\big(e^{-\frac{t^2}{2}}+e^{-\frac{t^2}{4}}\big)}{t^2} dt
-			\Bigg)
 			\leqslant\]\[\leqslant
 			L^3 \frac4\pi \Bigg(
 			-T_0e^{-\frac{T_0^2}{2}}
@@ -222,8 +222,8 @@
 			\Bigg)
 			+\]\[+
 			\frac{T_0}{\pi T_0^3}\Bigg(
-			-\int_0^{T_0}e^{-\frac{t^2}{2}}d(-\frac{t^2}{2})
-			-2\int_0^{T_0}e^{-\frac{t^2}{4}}d(-\frac{t^2}{4})
+			-\int_{T_0}^{T}e^{-\frac{t^2}{2}}d(-\frac{t^2}{2})
+			-2\int_{T_0}^{T}e^{-\frac{t^2}{4}}d(-\frac{t^2}{4})
 			\Bigg)
 			\leqslant\]\[\leqslant
 			L^3\Bigg(
@@ -371,7 +371,7 @@
 			+
 			\frac{27}\pi
 			\bigg(
-			\ln{T_0^3\frac{T}{T_0}} + \frac{T_0^4-TT_0^3}{T} + T_0\Big(
+			T_0^3\ln{\frac{T}{T_0}} + \frac{T_0^4-TT_0^3}{T} + T_0\Big(
 			e^{-\frac{T_0^2}{2}} - e^{-\frac{T^2}{2}}
 			\Big)
 			\bigg)
