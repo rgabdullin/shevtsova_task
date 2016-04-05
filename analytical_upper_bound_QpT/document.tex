@@ -1,0 +1,386 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amscd}
+\usepackage{bm}
+
+\usepackage{mathtext}
+\usepackage[T2A]{fontenc}
+\usepackage[cp1251]{inputenc}
+\usepackage[english, russian]{babel}
+
+\newtheorem{lemma}{Лемма}
+\newtheorem*{mainlemma}{Основная лемма}
+
+\begin{document}
+\title{Аналитическая оценка сверху для $Q_p(T)$}
+\author{Два баклана}
+\maketitle
+
+Пусть $Q_p(T) \equiv \frac{1}{2\pi}\cdot \int_{-T}^{T}\bigl(1-|\frac{t}{T}|\bigr) \bigl| \frac{\bar{f}_n(t) - e^{-\frac{t^2}{2}}}{t}\bigr| \, dt$
+
+\begin{lemma}\label{lemma1}
+	$ |\bar{f}_n| \leqslant e^{\frac{-t^2}2} $, при $|t| < T_1 = \frac1{94L^3}$
+\end{lemma}
+\begin{lemma}\label{lemma2}
+	$ |\bar{f}_n - e^{-\frac{t^2}2}| \leqslant 4L^3 |t|^3 e^{-\frac{t^2}2}$, при $|t| < T_0 = \frac1{3L}$
+\end{lemma}
+
+\begin{mainlemma}\label{mainlemma}
+	\[
+		Q_p(T) \leqslant
+		\begin{cases}
+		Q_1 \mbox{, при } 
+		T \leqslant T_0 < T_1 \text{, } 
+		T \leqslant T_1 \leqslant T_0 \text{, }
+		T_1 \leqslant T \leqslant T_0
+		\\
+		Q_2 \mbox{, при } T_0 < T \leqslant T_1\\
+		Q_3 \mbox{, при } T_0 < T_1 \leqslant T\\
+		Q_4 \mbox{, при } T_1 \leqslant T_0 < T \text{,}
+		\end{cases}
+	\]
+	\begin{eqnarray}
+	\label{formula1}
+		Q_1 \equiv L^3\cdot
+		\Bigg(
+		\frac{4}{\sqrt{2\pi}}
+		-
+		\frac{8}{\pi}\cdot
+		\frac{1-e^{-\frac{T^2}{2}}}{T}
+		\Bigg)
+	\\
+	\label{formula2}
+		Q_2 \equiv L^3\cdot
+		\Bigg(
+		\frac{4}{\sqrt{2\pi}}
+		-
+		\frac{4}{\pi} \cdot
+		\Big(
+		T_0e^{-\frac{T_0^2}{2}}
+		-
+		\frac{T_0^2}{T}e^{-\frac{T_0^2}{2}}
+		+
+		2\cdot\frac{1-e^{-\frac{T_0^2}{2}}}{T}
+		\Big)
+		+
+		\nonumber\\
+		+
+		\frac{27T_0}{\pi}
+		\cdot
+		\Big(
+		e^{-\frac{T_0^2}{2}}-e^{-\frac{T^2}{2}}
+		+
+		2e^{-\frac{T_0^2}{4}}-2e^{-\frac{T^2}{4}}
+		\Big)
+		\Bigg)
+	\\
+	\label{formula3}
+		Q_3 \equiv L^3\cdot
+		\Bigg(
+		\frac{4}{\sqrt{2\pi}}
+		-
+		\frac{4}{\pi} \cdot
+		\Big(
+		T_0e^{-\frac{T_0^2}{2}}
+		-
+		\frac{T_0^2}{T}e^{-\frac{T_0^2}{2}}
+		+
+		2\cdot\frac{1-e^{-\frac{T_0^2}{2}}}{T}
+		\Big)
+		+
+		\nonumber\\
+		+
+		\frac{27T_0}{\pi}
+		\cdot
+		\Big(
+		e^{-\frac{T_0^2}{2}}-e^{-\frac{T_1^2}{2}}
+		+
+		2e^{-\frac{T_0^2}{4}}-2e^{-\frac{T_1^2}{4}}
+		\Big)
+		+
+		\nonumber\\
+		+
+		\frac{94}{\pi}\cdot
+		\Big(
+		T_1 \ln{\frac{T}{T_1}}
+		+
+		\frac{T_1^2 - TT_1}{T}
+		+
+		\frac{e^{-\frac{T_1^2}{2}}-e^{-\frac{T^2}{2}}}{T}
+		\Big)
+		\Bigg)
+	\\
+	\label{formula4}
+		Q_4 \equiv L^3\cdot
+		\Bigg(
+		\frac{4}{\sqrt{2\pi}}
+		-
+		\frac{4}{\pi} \cdot
+		\Big(
+		T_0e^{-\frac{T_0^2}{2}}
+		-
+		\frac{T_0^2}{T}e^{-\frac{T_0^2}{2}}
+		+
+		2\cdot\frac{1-e^{-\frac{T_0^2}{2}}}{T}
+		\Big)
+		+
+		\nonumber\\
+		+
+		\frac{27}{\pi}\cdot
+		\Big(
+		T_0^3 \ln{\frac{T}{T_0}}
+		+
+		\frac{T_0^4 - TT_0^3}{T}
+		+
+		T_0 \cdot \big(e^{-\frac{T_0^2}{2}}-e^{-\frac{T^2}{2}}\big)
+		\Big)
+		\Bigg)
+	\end{eqnarray}
+\end{mainlemma}
+
+\begin{proof}[Доказательство]\label{mainlemmaproof}
+Применяя Лемму~\ref{lemma1} и Лемму~\ref{lemma2} рассмотрим 4 случая:
+\begin{itemize}
+	\item[1)]\label{formula1proof}$T \leqslant T_0 < T_1 \text{, } 
+		T \leqslant T_1 \leqslant T_0 \text{, }
+		T_1 \leqslant T \leqslant T_0$:
+		\[
+			Q_p(T) \leqslant 
+			\frac{1}{2\pi}
+			\int_{-T}^{T} \Big(1 - \Big| \frac{t}{T}\Big|\Big)
+			4L^3t^2e^{-\frac{t^2}{2}} dt
+			=
+			L^3\frac{4}{\pi}
+			\Bigg(
+			\int_0^T t^2e^{-\frac{t^2}{2}}dt
+			-
+			\frac1T \int_0^T t^3e^{-\frac{t^2}{2}} dt
+			\Bigg)
+			=\]\[=
+			L^3 \frac4\pi \Bigg(
+			\int_0^T (-t) d\Big(e^{-\frac{t^2}{2}}\Big)
+			-
+			\frac1T\int_0^T (-t^2) d\Big(e^{-\frac{t^2}{2}}\Big)
+			\Bigg)
+			\leqslant\]\[\leqslant
+			L^3\frac4\pi\Bigg(
+			-te^{-\frac{t^2}{2}}\Big|_0^T
+			+
+			\int_0^Te^{-\frac{t^2}{2}} dt
+			-
+			\frac1T \Big(
+			-t^2e^{-\frac{t^2}{2}}\Big|_0^T+\int_0^T e^{-\frac{t^2}{2}} dt^2
+			\Big)
+			\Bigg)
+			\leqslant\]\[\leqslant
+			L^3\frac4\pi \Bigg(
+			\sqrt{\frac{\pi}{2}} - Te^{-\frac{T^2}{2}}
+			-
+			\frac1T\Big(
+			-T^2e^{-\frac{T^2}{2}} - 2\big(e^{-\frac{T^2}{2}} - e^0\big)
+			\Big)	
+			\Bigg)
+			\leqslant\]\[\leqslant
+			L^3\Bigg(
+			\frac4{\sqrt{2\pi}} - \frac8\pi
+			\cdot\frac{1-e^{-\frac{T^2}{2}}}{T}\
+			\Bigg)
+		\]
+		что доказывает равенство \ref{formula1}.
+	\item[2)]\label{formula2proof}$T_0 < T \leqslant T_1$:
+		\[
+			Q_p(T) \leqslant 
+			\frac{1}{2\pi}
+			\int_{-T_0}^{T_0} \Big(1 - \Big| \frac{t}{T}\Big|\Big)
+			4L^3t^2e^{-\frac{t^2}{2}} dt
+			+
+			\frac{1}{2\pi}
+			\int_{T_0\leqslant|t|\leqslant T}^{}
+			\Big(1 - \Big| \frac{t}{T}\Big|\Big)
+			\Big|\frac{e^{-\frac{t^2}{2}} + e^{-\frac{t^2}{4}}}t\Big| dt
+			\leqslant\]\[\leqslant
+			L^3 \frac4\pi \Bigg(
+			\int_0^{T_0} t^2e^{-\frac{t^2}{2}} dt
+			-
+			\frac1T\int_0^{T_0} t^3 e^{-\frac{t^2}{2}} dt
+			+\frac1\pi
+			\int_{T_0}^T 1\cdot\frac{t\big(e^{-\frac{t^2}{2}}+e^{-\frac{t^2}{4}}\big)}{t^2} dt
+			\Bigg)
+			\leqslant\]\[\leqslant
+			L^3 \frac4\pi \Bigg(
+			-T_0e^{-\frac{T_0^2}{2}}
+			+\int_0^{T_0} e^{-\frac{t^2}{2}} dt
+			-\frac1T
+			\Big(
+			-T_0^2e^{-\frac{T_0^2}{2}}
+			+
+			2\big(1-e^{-\frac{T_0^2}{2}}\big)
+			\Big)
+			\Bigg)
+			+\]\[+
+			\frac{T_0}{\pi T_0^3}\Bigg(
+			-\int_0^{T_0}e^{-\frac{t^2}{2}}d(-\frac{t^2}{2})
+			-2\int_0^{T_0}e^{-\frac{t^2}{4}}d(-\frac{t^2}{4})
+			\Bigg)
+			\leqslant\]\[\leqslant
+			L^3\Bigg(
+			\frac4{\sqrt{2\pi}} - \frac4\pi\Big(
+			T_0e^{-\frac{T_0^2}{2}}-\frac{T_0^2}{T}e^{-\frac{T_0^2}{2}}
+			+2\frac{1-e^{-\frac{T_0^2}{2}}}{T}
+			\Big)
+			+\]\[+
+			\frac{27T_0}\pi\Big(
+			e^{-\frac{T_0^2}{2}} - e^{-\frac{T^2}{2}}
+			+
+			2e^{-\frac{T_0^2}{4}} - 2e^{-\frac{T^2}{4}}
+			\Big)
+			\Bigg)
+		\]
+		что доказывает равенство \ref{formula2}.
+	\item[3)]\label{formula3proof}$T_0 < T_1 \leqslant T$:
+		\[
+			Q_p(T) \leqslant 
+			\frac{1}{2\pi}
+			\int_{-T_0}^{T_0} \Big(1 - \Big| \frac{t}{T}\Big|\Big)
+			4L^3t^2e^{-\frac{t^2}{2}} dt
+			+
+			\frac{1}{2\pi}
+			\int_{T_0\leqslant|t|\leqslant T_1}^{}
+			\Big(1 - \Big| \frac{t}{T}\Big|\Big)
+			\Big|\frac{e^{-\frac{t^2}{2}} + e^{-\frac{t^2}{4}}}t\Big| dt
+			+\]\[+
+			\frac{1}{2\pi}
+			\int_{T_1\leqslant|t|\leqslant T}^{}
+			\Big(1 - \Big| \frac{t}{T}\Big|\Big)
+			\Big|\frac{1 + e^{-\frac{t^2}{2}}}t\Big| dt
+			\leqslant
+			L^3\Bigg(
+			\frac4{\sqrt{2\pi}} - \frac4\pi\Big(
+			T_0e^{-\frac{T_0^2}{2}}-\frac{T_0^2}{T}e^{-\frac{T_0^2}{2}}
+			+\]\[+
+			2\frac{1-e^{-\frac{T_0^2}{2}}}{T}
+			\Big)
+			+
+			\frac{27T_0}\pi\Big(
+			e^{-\frac{T_0^2}{2}} - e^{-\frac{T_1^2}{2}}
+			+
+			2e^{-\frac{T_0^2}{4}} - 2e^{-\frac{T_1^2}{4}}
+			\Big)
+			\Bigg)
+			+\]\[
+			\frac1\pi
+			\Bigg(
+			\int_{T_1}^T \Big(\frac1t - \frac1T\Big) dt
+			+ 
+			\int_{T_1}^T \frac{te^{-\frac{t^2}{2}}}{t^2} dt
+			\Bigg)
+			=
+			L^3\Bigg(
+			\frac4{\sqrt{2\pi}} - \frac4\pi\Big(
+			T_0e^{-\frac{T_0^2}{2}}-\frac{T_0^2}{T}e^{-\frac{T_0^2}{2}}
+			+\]\[+
+			2\frac{1-e^{-\frac{T_0^2}{2}}}{T}
+			\Big)
+			+
+			\frac{27T_0}\pi\Big(
+			e^{-\frac{T_0^2}{2}} - e^{-\frac{T_1^2}{2}}
+			+
+			2e^{-\frac{T_0^2}{4}} - 2e^{-\frac{T_1^2}{4}}
+			\Big)
+			\Bigg)
+			+\]\[+
+			\frac1\pi
+			\Bigg(
+			\ln{\frac{T}{T_1}} - \frac{T-T_1}{T} + \frac1{T_1^2}\bigg(
+			e^{-\frac{T_1^2}{2}} - e^{-\frac{T^2}{2}}
+			\bigg)
+			\Bigg)
+			=\]\[=
+			L^3\Bigg(
+			\frac4{\sqrt{2\pi}} - \frac4\pi\Big(
+			T_0e^{-\frac{T_0^2}{2}}-\frac{T_0^2}{T}e^{-\frac{T_0^2}{2}}
+			+
+			2\frac{1-e^{-\frac{T_0^2}{2}}}{T}
+			\Big)
+			+
+			\frac{27T_0}\pi\Big(
+			e^{-\frac{T_0^2}{2}} - e^{-\frac{T_1^2}{2}}
+			+\]\[+
+			2e^{-\frac{T_0^2}{4}} - 2e^{-\frac{T_1^2}{4}}
+			\Big)
+			+
+			\frac{94}\pi\bigg(
+			T_1\ln{\frac{T}{T_1}} + \frac{T_1^2-TT_1}{T} + \frac1{T_1}\Big(
+			e^{-\frac{T_1^2}{2}} - e^{-\frac{T^2}{2}}
+			\Big)
+			\bigg)
+			\Bigg)
+		\]
+		что доказывает равенство \ref{formula3}.
+		\item[4)]\label{formula4proof}$T_1 \leqslant T_0 < T$:
+		\[
+			Q_p(T) \leqslant 
+			\frac{1}{2\pi}
+			\int_{-T_0}^{T_0} \Big(1 - \Big| \frac{t}{T}\Big|\Big)
+			4L^3t^2e^{-\frac{t^2}{2}} dt
+			+
+			\frac{1}{2\pi}
+			\int_{T_0\leqslant|t|\leqslant T}^{}
+			\Big(1 - \Big| \frac{t}{T}\Big|\Big)
+			\Big|\frac{1 + e^{-\frac{t^2}{2}}}t\Big| dt
+			\leqslant\]\[\leqslant
+			L^3\Bigg(
+			\frac4{\sqrt{2\pi}} - \frac4\pi\Big(
+			T_0e^{-\frac{T_0^2}{2}}-\frac{T_0^2}{T}e^{-\frac{T_0^2}{2}}
+			+
+			2\frac{1-e^{-\frac{T_0^2}{2}}}{T}
+			\Big)
+			\Bigg)
+			+
+			\frac1\pi
+			\Bigg(
+			\int_{T_0}^T \Big(\frac1t - \frac1T\Big) dt
+			+\]\[+
+			\int_{T_0}^T \frac{te^{-\frac{t^2}{2}}}{t^2} dt
+			\Bigg)
+			=
+			L^3\Bigg(
+			\frac4{\sqrt{2\pi}} - \frac4\pi\Big(
+			T_0e^{-\frac{T_0^2}{2}}-\frac{T_0^2}{T}e^{-\frac{T_0^2}{2}}
+			+
+			2\frac{1-e^{-\frac{T_0^2}{2}}}{T}
+			\Big)
+			\Bigg)
+			+\]\[+
+			\frac1\pi
+			\Bigg(
+			\ln{\frac{T}{T_0}} - \frac{T-T_0}{T} + \frac1{T_0^2}\bigg(
+			e^{-\frac{T_0^2}{2}} - e^{-\frac{T^2}{2}}
+			\bigg)
+			\Bigg)
+			=
+			L^3\Bigg(
+			\frac4{\sqrt{2\pi}} - \frac4\pi\Big(
+			T_0e^{-\frac{T_0^2}{2}}-\frac{T_0^2}{T}e^{-\frac{T_0^2}{2}}
+			+\]\[+
+			2\frac{1-e^{-\frac{T_0^2}{2}}}{T}
+			\Big)
+			+
+			\frac{27}\pi
+			\bigg(
+			\ln{T_0^3\frac{T}{T_0}} + \frac{T_0^4-TT_0^3}{T} + T_0\Big(
+			e^{-\frac{T_0^2}{2}} - e^{-\frac{T^2}{2}}
+			\Big)
+			\bigg)
+			\Bigg)
+		\]
+		что доказывает равенство \ref{formula4} и завершает доказательство леммы.
+		
+\end{itemize}
+\end{proof}
+
+\end{document}
+% Экспонента: e^{-\frac{t^2}{2}}
